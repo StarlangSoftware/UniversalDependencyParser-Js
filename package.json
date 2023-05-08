@@ -1,0 +1,30 @@
+{
+  "name": "nlptoolkit-universaldependencyparser",
+  "version": "1.0.0",
+  "description": "Dependency Parsing Algorithms",
+  "main": "index.js",
+  "types": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StarlangSoftware/UniversalDependencyParser-Js.git"
+  },
+  "author": "Olcay Taner YILDIZ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StarlangSoftware/UniversalDependencyParser-Js/issues"
+  },
+  "homepage": "https://github.com/StarlangSoftware/UniversalDependencyParser-Js#readme",
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "nlptoolkit-classification": "^1.0.7",
+    "nlptoolkit-dependencyparser": "^1.0.8"
+  }
+}
