@@ -13,6 +13,13 @@ export class SimpleInstanceGenerator extends InstanceGenerator{
         super();
     }
 
+    /**
+     * Generates an instance based on the state, window size, and command.
+     * @param state The current state of the parser, which includes the stack and word list.
+     * @param windowSize The size of the window used for feature extraction.
+     * @param command The command to be associated with the generated instance.
+     * @return The generated {@link Instance} object with attributes based on the state and command.
+     */
     generate(state: State, windowSize: number, command: string): Instance {
         let instance = new Instance(command)
         let attributes = new Array<Attribute>()

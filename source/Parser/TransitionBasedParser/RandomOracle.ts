@@ -11,6 +11,11 @@ export class RandomOracle extends Oracle{
         super(model, windowSize)
     }
 
+    /**
+     * Makes a random decision based on a uniform distribution over possible actions.
+     * @param state The current state of the parser.
+     * @return A Decision object representing the randomly chosen action.
+     */
     public makeDecision(state: State): Decision {
         let command = Math.floor(Math.random() * 3)
         let relation = Math.floor(Math.random() * 58)

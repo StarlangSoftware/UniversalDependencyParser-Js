@@ -23,6 +23,12 @@
     class TransitionParser {
         constructor() {
         }
+        /**
+         * Creates a new {@link UniversalDependencyTreeBankSentence} with the same words as the input sentence,
+         * but with null heads, effectively cloning the sentence structure without dependencies.
+         * @param universalDependencyTreeBankSentence the sentence to be cloned
+         * @return a new {@link UniversalDependencyTreeBankSentence} with copied words but no dependencies
+         */
         createResultSentence(universalDependencyTreeBankSentence) {
             let sentence = new UniversalDependencyTreeBankSentence_1.UniversalDependencyTreeBankSentence();
             for (let i = 0; i < universalDependencyTreeBankSentence.wordCount(); i++) {
@@ -33,6 +39,12 @@
             }
             return sentence;
         }
+        /**
+         * Simulates parsing a corpus of sentences, returning a dataset of instances created by parsing each sentence.
+         * @param corpus the corpus to be parsed
+         * @param windowSize the size of the window used in parsing
+         * @return a {@link DataSet} containing instances from parsing each sentence in the corpus
+         */
         simulateParseOnCorpus(corpus, windowSize) {
             let dataSet = new DataSet_1.DataSet();
             for (let i = 0; i < corpus.sentenceCount(); i++) {
@@ -43,6 +55,11 @@
             }
             return dataSet;
         }
+        /**
+         * Checks if there are any states in the agenda that still have words to process or have more than one item in the stack.
+         * @param agenda the agenda containing the states
+         * @return true if there are states to process, false otherwise
+         */
         checkStates(agenda) {
             for (let state of agenda.getKeySet()) {
                 if (state.wordListSize() > 0 || state.stackSize() > 1) {
@@ -51,6 +68,11 @@
             }
             return false;
         }
+        /**
+         * Initializes the parsing state with a stack containing one empty {@link StackWord} and a word list containing all words in the sentence.
+         * @param sentence the sentence to initialize the state with
+         * @return a {@link State} representing the starting point for parsing
+         */
         initialState(sentence) {
             let wordList = new Array();
             for (let i = 0; i < sentence.wordCount(); i++) {
@@ -63,6 +85,12 @@
             stack.push(new StackWord_1.StackWord());
             return new State_1.State(stack, wordList, new Array());
         }
+        /**
+         * Constructs possible parsing candidates based on the current state and transition system.
+         * @param transitionSystem the transition system used (ARC_STANDARD or ARC_EAGER)
+         * @param state the current parsing state
+         * @return a list of possible {@link Candidate} actions to be applied
+         */
         constructCandidates(transitionSystem, state) {
             if (state.stackSize() == 1 && state.wordListSize() == 0) {
                 return new Array();
@@ -87,6 +115,14 @@
             }
             return subsets;
         }
+        /**
+         * Performs dependency parsing with beam search to find the best parse for a given sentence.
+         * @param oracle the scoring oracle used for guiding the search
+         * @param beamSize the size of the beam for beam search
+         * @param universalDependencyTreeBankSentence the sentence to be parsed
+         * @param transitionSystem the transition system used (ARC_STANDARD or ARC_EAGER)
+         * @return the best parsing state from the beam search
+         */
         dependencyParseWithBeamSearch(oracle, beamSize, universalDependencyTreeBankSentence, transitionSystem) {
             let sentence = this.createResultSentence(universalDependencyTreeBankSentence);
             let initialState = this.initialState(sentence);
@@ -106,6 +142,12 @@
             }
             return agenda.best();
         }
+        /**
+         * Parses a corpus of sentences using the given oracle and returns a new corpus with the parsed sentences.
+         * @param universalDependencyTreeBankCorpus the corpus to be parsed
+         * @param oracle the oracle used for guiding the parsing process
+         * @return a {@link UniversalDependencyTreeBankCorpus} containing the parsed sentences
+         */
         dependencyParseCorpus(universalDependencyTreeBankCorpus, oracle) {
             let corpus = new UniversalDependencyTreeBankCorpus_1.UniversalDependencyTreeBankCorpus();
             for (let i = 0; i < universalDependencyTreeBankCorpus.sentenceCount(); i++) {

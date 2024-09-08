@@ -15,9 +15,22 @@
     const DiscreteIndexedAttribute_1 = require("nlptoolkit-classification/dist/Attribute/DiscreteIndexedAttribute");
     const UniversalDependencyTreeBankFeatures_1 = require("nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyTreeBankFeatures");
     class ArcEagerInstanceGenerator extends InstanceGenerator_1.InstanceGenerator {
+        /**
+         * Checks if the given word has a valid relation.
+         * @param word The UniversalDependencyTreeBankWord to check.
+         * @return true if the relation is valid, false otherwise.
+         */
         suitable(word) {
             return word.getRelation() != null;
         }
+        /**
+         * Generates an Instance object based on the provided state, window size, and command.
+         * The Instance is populated with attributes derived from the words in the state.
+         * @param state The state used to generate the instance.
+         * @param windowSize The size of the window used to extract words from the state.
+         * @param command The command associated with the instance.
+         * @return The generated Instance object.
+         */
         generate(state, windowSize, command) {
             let instance = new Instance_1.Instance(command);
             let attributes = new Array();

@@ -13,6 +13,12 @@
     const UniversalDependencyTreeBankFeatures_1 = require("nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyTreeBankFeatures");
     const DiscreteIndexedAttribute_1 = require("nlptoolkit-classification/dist/Attribute/DiscreteIndexedAttribute");
     class InstanceGenerator {
+        /**
+         * Adds an attribute for a specific feature type of a given word to the list of attributes.
+         * @param word The word whose feature value is used to create the attribute.
+         * @param attributes The list of attributes to which the new attribute will be added.
+         * @param featureType The type of the feature to be extracted from the word.
+         */
         addAttributeForFeatureType(word, attributes, featureType) {
             let feature = word.getFeatureValue(featureType);
             let numberOfValues = UniversalDependencyTreeBankFeatures_1.UniversalDependencyTreeBankFeatures.numberOfValues("tr", featureType) + 1;
@@ -23,6 +29,11 @@
                 attributes.push(new DiscreteIndexedAttribute_1.DiscreteIndexedAttribute("null", 0, numberOfValues));
             }
         }
+        /**
+         * Adds a set of default (empty) attributes to the list of attributes. These attributes represent
+         * various feature types with default "null" values.
+         * @param attributes The list of attributes to which the default attributes will be added.
+         */
         addEmptyAttributes(attributes) {
             attributes.push(new DiscreteIndexedAttribute_1.DiscreteIndexedAttribute("null", 0, UniversalDependencyTreeBankFeatures_1.UniversalDependencyTreeBankFeatures.numberOfValues("tr", "PronType") + 1));
             attributes.push(new DiscreteIndexedAttribute_1.DiscreteIndexedAttribute("null", 0, UniversalDependencyTreeBankFeatures_1.UniversalDependencyTreeBankFeatures.numberOfValues("tr", "NumType") + 1));
@@ -39,6 +50,11 @@
             attributes.push(new DiscreteIndexedAttribute_1.DiscreteIndexedAttribute("null", 0, UniversalDependencyTreeBankFeatures_1.UniversalDependencyTreeBankFeatures.numberOfValues("tr", "Polarity") + 1));
             attributes.push(new DiscreteIndexedAttribute_1.DiscreteIndexedAttribute("null", 0, UniversalDependencyTreeBankFeatures_1.UniversalDependencyTreeBankFeatures.numberOfValues("tr", "Person") + 1));
         }
+        /**
+         * Adds attributes for various feature types of a given word to the list of attributes.
+         * @param word The word whose feature values are used to create the attributes.
+         * @param attributes The list of attributes to which the new attributes will be added.
+         */
         addFeatureAttributes(word, attributes) {
             this.addAttributeForFeatureType(word, attributes, "PronType");
             this.addAttributeForFeatureType(word, attributes, "NumType");

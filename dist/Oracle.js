@@ -14,10 +14,22 @@
     const UniversalDependencyRelation_1 = require("nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyRelation");
     const UniversalDependencyType_1 = require("nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyType");
     class Oracle {
+        /**
+         * Constructs an Oracle with the given model and window size.
+         * @param model the model used for making predictions
+         * @param windowSize the size of the window used in parsing
+         */
         constructor(model, windowSize) {
             this.commandModel = model;
             this.windowSize = windowSize;
         }
+        /**
+         * Finds the best valid parsing action for the ARC_EAGER transition system based on probabilities.
+         * Ensures the action is applicable given the current state.
+         * @param probabilities a map of actions to their associated probabilities
+         * @param state the current parsing state
+         * @return the best action as a string, or an empty string if no valid action is found
+         */
         findBestValidEagerClassInfo(probabilities, state) {
             let bestValue = 0.0;
             let best = "";
@@ -41,6 +53,13 @@
             }
             return best;
         }
+        /**
+         * Finds the best valid parsing action for the ARC_STANDARD transition system based on probabilities.
+         * Ensures the action is applicable given the current state.
+         * @param probabilities a map of actions to their associated probabilities
+         * @param state the current parsing state
+         * @return the best action as a string, or an empty string if no valid action is found
+         */
         findBestValidStandardClassInfo(probabilities, state) {
             let bestValue = 0.0;
             let best = "";
@@ -62,6 +81,11 @@
             }
             return best;
         }
+        /**
+         * Converts a string representation of the best action into a {@link Candidate} object.
+         * @param best the best action represented as a string, possibly with a dependency type in parentheses
+         * @return a {@link Candidate} object representing the action, or null if the action is unknown
+         */
         getDecisionCandidate(best) {
             let command, type;
             if (best.includes("(")) {

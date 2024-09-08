@@ -12,10 +12,23 @@ import {Attribute} from "nlptoolkit-classification/dist/Attribute/Attribute";
 
 export class ArcEagerInstanceGenerator extends InstanceGenerator{
 
+    /**
+     * Checks if the given word has a valid relation.
+     * @param word The UniversalDependencyTreeBankWord to check.
+     * @return true if the relation is valid, false otherwise.
+     */
     private suitable(word: UniversalDependencyTreeBankWord): boolean{
         return word.getRelation() != null
     }
 
+    /**
+     * Generates an Instance object based on the provided state, window size, and command.
+     * The Instance is populated with attributes derived from the words in the state.
+     * @param state The state used to generate the instance.
+     * @param windowSize The size of the window used to extract words from the state.
+     * @param command The command associated with the instance.
+     * @return The generated Instance object.
+     */
     generate(state: State, windowSize: number, command: string): Instance {
         let instance = new Instance(command)
         let attributes = new Array<Attribute>()

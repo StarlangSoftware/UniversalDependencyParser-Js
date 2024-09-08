@@ -22,7 +22,7 @@
             let instance = instanceGenerator.generate(state, this.windowSize, "");
             let best = this.findBestValidStandardClassInfo(this.commandModel.predictProbability(instance), state);
             let decisionCandidate = this.getDecisionCandidate(best);
-            if (decisionCandidate.getCommand() === Command.SHIFT) {
+            if (decisionCandidate.getCommand() == Command.SHIFT) {
                 return new Decision_1.Decision(Command.SHIFT, null, 0.0);
             }
             return new Decision_1.Decision(decisionCandidate.getCommand(), decisionCandidate.getUniversalDependencyType(), 0.0);

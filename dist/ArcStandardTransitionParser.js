@@ -19,14 +19,26 @@
         constructor() {
             super();
         }
+        /**
+         * Checks if there are more relations with a specified ID in the list of words.
+         * @param wordList The list of words to check.
+         * @param id The ID to check for.
+         * @return True if no more relations with the specified ID are found; false otherwise.
+         */
         checkForMoreRelation(wordList, id) {
             for (let word of wordList) {
-                if (word.getWord().getRelation().to() === id) {
+                if (word.getWord().getRelation().to() == id) {
                     return false;
                 }
             }
             return true;
         }
+        /**
+         * Performs dependency parsing on the given sentence using the provided oracle.
+         * @param universalDependencyTreeBankSentence The sentence to be parsed.
+         * @param oracle The oracle used to make parsing decisions.
+         * @return The parsed sentence with dependency relations established.
+         */
         dependencyParse(universalDependencyTreeBankSentence, oracle) {
             let sentence = this.createResultSentence(universalDependencyTreeBankSentence);
             let state = this.initialState(sentence);
@@ -48,6 +60,12 @@
             }
             return sentence;
         }
+        /**
+         * Simulates the parsing process for a given sentence using the Arc Standard parsing algorithm.
+         * @param sentence The sentence to be parsed.
+         * @param windowSize The size of the window used for feature generation.
+         * @return An ArrayList of {@link Instance} objects representing the parsed actions.
+         */
         simulateParse(sentence, windowSize) {
             let instanceGenerator = new SimpleInstanceGenerator_1.SimpleInstanceGenerator();
             let instanceList = new Array();
@@ -74,11 +92,11 @@
                     if (stack.length > 1) {
                         let beforeTop = stack[stack.length - 2].getWord();
                         let beforeTopRelation = beforeTop.getRelation();
-                        if (beforeTop.getId() === topRelation.to() && this.checkForMoreRelation(wordList, top.getId())) {
+                        if (beforeTop.getId() == topRelation.to() && this.checkForMoreRelation(wordList, top.getId())) {
                             instanceList.push(instanceGenerator.generate(state, windowSize, "RIGHTARC(" + topRelation + ")"));
                             stack.pop();
                         }
-                        else if (top.getId() === beforeTopRelation.to()) {
+                        else if (top.getId() == beforeTopRelation.to()) {
                             instanceList.push(instanceGenerator.generate(state, windowSize, "LEFTARC(" + beforeTopRelation + ")"));
                             stack.splice(stack.length - 2, 1);
                         }
