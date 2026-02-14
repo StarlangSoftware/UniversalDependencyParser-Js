@@ -1,4 +1,5 @@
 import {UniversalDependencyType} from "nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyType";
+import {Command} from "./Command";
 
 export class Candidate {
     private readonly command: Command;

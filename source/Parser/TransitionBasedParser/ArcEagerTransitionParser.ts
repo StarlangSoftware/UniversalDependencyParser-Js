@@ -11,6 +11,7 @@ import {ArcEagerInstanceGenerator} from "./ArcEagerInstanceGenerator";
 import {StackWord} from "./StackWord";
 import {State} from "./State";
 import {StackRelation} from "./StackRelation";
+import {Command} from "./Command";
 
 export class ArcEagerTransitionParser extends TransitionParser{
 

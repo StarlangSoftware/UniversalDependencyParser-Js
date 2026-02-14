@@ -5,6 +5,8 @@ import {UniversalDependencyRelation} from "nlptoolkit-dependencyparser/dist/Univ
 import {
     UniversalDependencyTreeBankWord
 } from "nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyTreeBankWord";
+import {Command} from "./Command";
+import {TransitionSystem} from "./TransitionSystem";
 
 export class State {
 

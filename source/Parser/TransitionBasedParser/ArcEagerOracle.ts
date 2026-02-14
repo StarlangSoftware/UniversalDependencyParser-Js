@@ -3,6 +3,8 @@ import {State} from "./State";
 import {Decision} from "./Decision";
 import {Model} from "nlptoolkit-classification/dist/Model/Model";
 import {SimpleInstanceGenerator} from "./SimpleInstanceGenerator";
+import {Command} from "./Command";
+import {TransitionSystem} from "./TransitionSystem";
 
 export class ArcEagerOracle extends Oracle{
 

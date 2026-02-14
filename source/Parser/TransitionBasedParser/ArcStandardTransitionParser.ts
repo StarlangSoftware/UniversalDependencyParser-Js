@@ -11,6 +11,7 @@ import {
 } from "nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyTreeBankWord";
 import {State} from "./State";
 import {StackRelation} from "./StackRelation";
+import {Command} from "./Command";
 
 export class ArcStandardTransitionParser extends TransitionParser{
 

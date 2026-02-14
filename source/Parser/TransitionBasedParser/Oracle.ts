@@ -4,6 +4,8 @@ import {State} from "./State";
 import {Candidate} from "./Candidate";
 import {UniversalDependencyRelation} from "nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyRelation";
 import {UniversalDependencyType} from "nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyType";
+import {TransitionSystem} from "./TransitionSystem";
+import {Command} from "./Command";
 
 export abstract class Oracle {
 

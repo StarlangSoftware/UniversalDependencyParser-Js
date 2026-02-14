@@ -4,6 +4,8 @@ import {Decision} from "./Decision";
 import {Model} from "nlptoolkit-classification/dist/Model/Model";
 import {UniversalDependencyType} from "nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyType";
 import {UniversalDependencyRelation} from "nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyRelation";
+import {Command} from "./Command";
+import {TransitionSystem} from "./TransitionSystem";
 
 export class RandomOracle extends Oracle{
 

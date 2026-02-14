@@ -1,8 +1,8 @@
 {
   "name": "nlptoolkit-universaldependencyparser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dependency Parsing Algorithms",
-  "main": "index.js",
+  "main": "source/index.ts",
   "types": "index.js",
   "scripts": {
     "test": "mocha"
@@ -24,7 +24,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "nlptoolkit-classification": "^1.0.7",
-    "nlptoolkit-dependencyparser": "^1.0.8"
+    "nlptoolkit-classification": "^1.0.8",
+    "nlptoolkit-dependencyparser": "^1.0.9"
   }
 }

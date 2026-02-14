@@ -1,5 +1,6 @@
 import {UniversalDependencyType} from "nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyType";
 import {Candidate} from "./Candidate";
+import {Command} from "./Command";
 
 export class Decision extends Candidate{
 

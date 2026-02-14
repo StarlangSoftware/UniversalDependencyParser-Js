@@ -18,6 +18,8 @@ import {Candidate} from "./Candidate";
 import {UniversalDependencyType} from "nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyType";
 import {UniversalDependencyRelation} from "nlptoolkit-dependencyparser/dist/Universal/UniversalDependencyRelation";
 import {ScoringOracle} from "./ScoringOracle";
+import {Command} from "./Command";
+import {TransitionSystem} from "./TransitionSystem";
 
 export abstract class TransitionParser {
 

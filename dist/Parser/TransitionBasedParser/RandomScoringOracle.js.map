@@ -1,0 +1,1 @@
+{"version":3,"file":"RandomScoringOracle.js","sourceRoot":"","sources":["../../../source/Parser/TransitionBasedParser/RandomScoringOracle.ts"],"names":[],"mappings":";;;;;;;;;;;;IAAA,mDAA8C;IAG9C,MAAa,mBAAoB,SAAQ,6BAAa;QAElD,KAAK,CAAC,KAAY;YACd,OAAO,IAAI,CAAC,MAAM,EAAE,CAAA;QACxB,CAAC;KAEJ;IAND,kDAMC"}
