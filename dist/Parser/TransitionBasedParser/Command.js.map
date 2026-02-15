@@ -1,1 +1,1 @@
-{"version":3,"file":"Command.js","sourceRoot":"","sources":["../../../source/Parser/TransitionBasedParser/Command.ts"],"names":[],"mappings":";;;;;;;;;;;;IAAA,IAAY,OAEX;IAFD,WAAY,OAAO;QACf,6CAAQ,CAAA;QAAE,2CAAO,CAAA;QAAE,uCAAK,CAAA;QAAE,yCAAM,CAAA;IACpC,CAAC,EAFW,OAAO,GAAP,eAAO,KAAP,eAAO,QAElB"}
+{"version":3,"file":"Command.js","sourceRoot":"","sources":["../../../source/Parser/TransitionBasedParser/Command.ts"],"names":[],"mappings":";;;AAAA,IAAY,OAEX;AAFD,WAAY,OAAO;IACf,6CAAQ,CAAA;IAAE,2CAAO,CAAA;IAAE,uCAAK,CAAA;IAAE,yCAAM,CAAA;AACpC,CAAC,EAFW,OAAO,uBAAP,OAAO,QAElB"}
